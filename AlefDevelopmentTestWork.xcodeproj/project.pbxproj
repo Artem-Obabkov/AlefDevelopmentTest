@@ -16,6 +16,8 @@
 		8BF300A1273A9D0A00FA534A /* MainVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300A0273A9D0A00FA534A /* MainVCExtension.swift */; };
 		8BF300A6273A9EB200FA534A /* ChildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300A4273A9EB200FA534A /* ChildCell.swift */; };
 		8BF300A7273A9EB200FA534A /* ChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF300A5273A9EB200FA534A /* ChildCell.xib */; };
+		8BF300AA273B08DD00FA534A /* ChildCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300A9273B08DD00FA534A /* ChildCellExtension.swift */; };
+		8BF300AE273B155A00FA534A /* ChildModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300AD273B155A00FA534A /* ChildModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		8BF300A0273A9D0A00FA534A /* MainVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtension.swift; sourceTree = "<group>"; };
 		8BF300A4273A9EB200FA534A /* ChildCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCell.swift; sourceTree = "<group>"; };
 		8BF300A5273A9EB200FA534A /* ChildCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildCell.xib; sourceTree = "<group>"; };
+		8BF300A9273B08DD00FA534A /* ChildCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCellExtension.swift; sourceTree = "<group>"; };
+		8BF300AD273B155A00FA534A /* ChildModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 		8BF30097273A6F7A00FA534A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8BF300AD273B155A00FA534A /* ChildModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				8BF300A4273A9EB200FA534A /* ChildCell.swift */,
+				8BF300A9273B08DD00FA534A /* ChildCellExtension.swift */,
 				8BF300A5273A9EB200FA534A /* ChildCell.xib */,
 			);
 			path = Cell;
@@ -235,8 +241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF300AE273B155A00FA534A /* ChildModel.swift in Sources */,
 				8BF3007B273A6CF400FA534A /* MainViewController.swift in Sources */,
 				8BF30077273A6CF400FA534A /* AppDelegate.swift in Sources */,
+				8BF300AA273B08DD00FA534A /* ChildCellExtension.swift in Sources */,
 				8BF300A6273A9EB200FA534A /* ChildCell.swift in Sources */,
 				8BF30079273A6CF400FA534A /* SceneDelegate.swift in Sources */,
 				8BF300A1273A9D0A00FA534A /* MainVCExtension.swift in Sources */,

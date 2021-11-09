@@ -6,11 +6,55 @@
 //
 
 import Foundation
+import UIKit
 
 extension MainViewController {
     
-    func setupDesign() {
+    // Добавляем жест для скрытия клавиатуры
+    
+    
+    func viewsDesign() {
         
+        // Дизайн для NameView
+        self.nameView.layer.cornerRadius = 5
+        
+        // Дизайн для AgeView
+        self.ageView.layer.cornerRadius = 5
+        
+        self.tableView.isHidden = true
+    }
+    
+    func buttonDesign() {
+        
+        // Дизайн кнопки добавить
+        self.addChildButton.layer.cornerRadius = 20
+        self.addChildButton.backgroundColor = UIColor.clear
+        
+        self.addChildButton.layer.borderWidth = 3
+        self.addChildButton.layer.borderColor = UIColor.darkGray.cgColor
+        
+        // Дизайн кнопки очистить
+        self.clearButton.layer.cornerRadius = 20
+        self.clearButton.backgroundColor = UIColor.clear
+        
+        self.clearButton.layer.borderWidth = 1.5
+        self.clearButton.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    func addAnimation(to button: UIButton) {
+        
+        // Анимация кнопки
+        button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.3,
+                       initialSpringVelocity: 0.9,
+                       options: .allowUserInteraction) {
+            
+            button.transform = CGAffineTransform(scaleX: 1, y: 1)
+            
+        }
     }
     
 }
