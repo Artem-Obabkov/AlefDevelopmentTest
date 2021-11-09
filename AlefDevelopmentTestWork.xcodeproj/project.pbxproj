@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		8BF30077273A6CF400FA534A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30076273A6CF400FA534A /* AppDelegate.swift */; };
 		8BF30079273A6CF400FA534A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF30078273A6CF400FA534A /* SceneDelegate.swift */; };
-		8BF3007B273A6CF400FA534A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3007A273A6CF400FA534A /* ViewController.swift */; };
+		8BF3007B273A6CF400FA534A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3007A273A6CF400FA534A /* MainViewController.swift */; };
 		8BF3007E273A6CF400FA534A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3007C273A6CF400FA534A /* Main.storyboard */; };
 		8BF30080273A6CFE00FA534A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF3007F273A6CFE00FA534A /* Assets.xcassets */; };
 		8BF30083273A6CFE00FA534A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF30081273A6CFE00FA534A /* LaunchScreen.storyboard */; };
+		8BF300A1273A9D0A00FA534A /* MainVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300A0273A9D0A00FA534A /* MainVCExtension.swift */; };
+		8BF300A6273A9EB200FA534A /* ChildCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300A4273A9EB200FA534A /* ChildCell.swift */; };
+		8BF300A7273A9EB200FA534A /* ChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF300A5273A9EB200FA534A /* ChildCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8BF30073273A6CF400FA534A /* AlefDevelopmentTestWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlefDevelopmentTestWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF30076273A6CF400FA534A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BF30078273A6CF400FA534A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8BF3007A273A6CF400FA534A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BF3007A273A6CF400FA534A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8BF3007D273A6CF400FA534A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BF3007F273A6CFE00FA534A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BF30082273A6CFE00FA534A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BF30084273A6CFE00FA534A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF300A0273A9D0A00FA534A /* MainVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCExtension.swift; sourceTree = "<group>"; };
+		8BF300A4273A9EB200FA534A /* ChildCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCell.swift; sourceTree = "<group>"; };
+		8BF300A5273A9EB200FA534A /* ChildCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,106 @@
 		8BF30075273A6CF400FA534A /* AlefDevelopmentTestWork */ = {
 			isa = PBXGroup;
 			children = (
-				8BF30076273A6CF400FA534A /* AppDelegate.swift */,
-				8BF30078273A6CF400FA534A /* SceneDelegate.swift */,
-				8BF3007A273A6CF400FA534A /* ViewController.swift */,
-				8BF3007C273A6CF400FA534A /* Main.storyboard */,
-				8BF3007F273A6CFE00FA534A /* Assets.xcassets */,
-				8BF30081273A6CFE00FA534A /* LaunchScreen.storyboard */,
-				8BF30084273A6CFE00FA534A /* Info.plist */,
+				8BF3008C273A6F4000FA534A /* Application */,
+				8BF30091273A6F6900FA534A /* MainScreen */,
+				8BF30098273A6F8200FA534A /* SupportingFiles */,
 			);
 			path = AlefDevelopmentTestWork;
+			sourceTree = "<group>";
+		};
+		8BF3008C273A6F4000FA534A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3008E273A6F4D00FA534A /* Model */,
+				8BF3008F273A6F5200FA534A /* View */,
+				8BF3008D273A6F4600FA534A /* Controller */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		8BF3008D273A6F4600FA534A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BF30076273A6CF400FA534A /* AppDelegate.swift */,
+				8BF30078273A6CF400FA534A /* SceneDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BF3008E273A6F4D00FA534A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BF3008F273A6F5200FA534A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3007C273A6CF400FA534A /* Main.storyboard */,
+				8BF30081273A6CFE00FA534A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BF30091273A6F6900FA534A /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BF30097273A6F7A00FA534A /* Model */,
+				8BF30095273A6F7500FA534A /* View */,
+				8BF30093273A6F6F00FA534A /* Controller */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		8BF30093273A6F6F00FA534A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3007A273A6CF400FA534A /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BF30095273A6F7500FA534A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BF300A3273A9E9800FA534A /* Cell */,
+				8BF3009F273A9CF000FA534A /* Extension */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BF30097273A6F7A00FA534A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BF30098273A6F8200FA534A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8BF3007F273A6CFE00FA534A /* Assets.xcassets */,
+				8BF30084273A6CFE00FA534A /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8BF3009F273A9CF000FA534A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8BF300A0273A9D0A00FA534A /* MainVCExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8BF300A3273A9E9800FA534A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8BF300A4273A9EB200FA534A /* ChildCell.swift */,
+				8BF300A5273A9EB200FA534A /* ChildCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +223,7 @@
 			files = (
 				8BF30083273A6CFE00FA534A /* LaunchScreen.storyboard in Resources */,
 				8BF30080273A6CFE00FA534A /* Assets.xcassets in Resources */,
+				8BF300A7273A9EB200FA534A /* ChildCell.xib in Resources */,
 				8BF3007E273A6CF400FA534A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,9 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BF3007B273A6CF400FA534A /* ViewController.swift in Sources */,
+				8BF3007B273A6CF400FA534A /* MainViewController.swift in Sources */,
 				8BF30077273A6CF400FA534A /* AppDelegate.swift in Sources */,
+				8BF300A6273A9EB200FA534A /* ChildCell.swift in Sources */,
 				8BF30079273A6CF400FA534A /* SceneDelegate.swift in Sources */,
+				8BF300A1273A9D0A00FA534A /* MainVCExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +388,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27XLCNX4SV;
-				INFOPLIST_FILE = AlefDevelopmentTestWork/Info.plist;
+				INFOPLIST_FILE = AlefDevelopmentTestWork/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27XLCNX4SV;
-				INFOPLIST_FILE = AlefDevelopmentTestWork/Info.plist;
+				INFOPLIST_FILE = AlefDevelopmentTestWork/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
