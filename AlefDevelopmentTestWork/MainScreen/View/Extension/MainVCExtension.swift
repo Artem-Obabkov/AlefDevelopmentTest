@@ -9,10 +9,7 @@ import Foundation
 import UIKit
 
 extension MainViewController {
-    
-    // Добавляем жест для скрытия клавиатуры
-    
-    
+        
     func viewsDesign() {
         
         // Дизайн для NameView
@@ -21,7 +18,9 @@ extension MainViewController {
         // Дизайн для AgeView
         self.ageView.layer.cornerRadius = 5
         
-        self.tableView.isHidden = true
+        // Убираем нижние разделители
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+        self.tableView.tableFooterView = footerView
     }
     
     func buttonDesign() {
@@ -30,7 +29,7 @@ extension MainViewController {
         self.addChildButton.layer.cornerRadius = 20
         self.addChildButton.backgroundColor = UIColor.clear
         
-        self.addChildButton.layer.borderWidth = 3
+        self.addChildButton.layer.borderWidth = 1.5
         self.addChildButton.layer.borderColor = UIColor.darkGray.cgColor
         
         // Дизайн кнопки очистить

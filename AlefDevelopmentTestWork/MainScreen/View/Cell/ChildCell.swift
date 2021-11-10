@@ -9,8 +9,8 @@ import UIKit
 
 // Протокол, для передачи данных на MainVC
 protocol ChildCellDelegate {
-    func shouldDelete()
-    func addNotification()
+    func shouldDelete(at indexPath: IndexPath)
+    func addNotification(at indexPath: IndexPath, child: Child)
 }
 
 class ChildCell: UITableViewCell {
@@ -25,6 +25,9 @@ class ChildCell: UITableViewCell {
     // Создаем экземпляр протокола для передачи данных
     var delegate: ChildCellDelegate?
     
+    var indexPath: IndexPath?
+    var currentChild: Child?
+    
     // Функции для регистрации ячейки
     static func registerNib() -> UINib {
         return UINib(nibName: "ChildCell", bundle: nil)
@@ -34,29 +37,76 @@ class ChildCell: UITableViewCell {
         return "ChildCell"
     }
     
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
     @IBAction func deleteButtonAction(_ sender: UIButton) {
         
         addAnimation(to: sender)
         
-        // Передаем данные
-        if self.delegate != nil {
-            delegate!.shouldDelete()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150)) {
+            
+            self.nameTF.text = ""
+            self.ageTF.text = ""
+            self.contentView.endEditing(true)
+            
+            // Передаем данные
+            if self.delegate != nil, let indexPath = self.indexPath {
+                self.delegate!.shouldDelete(at: indexPath)
+            }
         }
-        
     }
     
     @IBAction func nameTFAction(_ sender: UITextField) {
         
-        if self.delegate != nil {
-            delegate!.addNotification()
+        if self.delegate != nil, let indexPath = indexPath, self.currentChild != nil {
+            
+            // Устанавливаем занчения
+            self.currentChild!.name = nameTF.text
+            
+            delegate!.addNotification(at: indexPath, child: self.currentChild!)
         }
+        
     }
+    
     
     @IBAction func ageTFAction(_ sender: UITextField) {
         
-        if self.delegate != nil {
-            delegate!.addNotification()
+        if self.delegate != nil, let indexPath = indexPath, self.currentChild != nil {
+            
+            // Устанавливаем занчения
+
+            if let ageInt = Int(ageTF.text!) {
+                self.currentChild!.age = ageInt
+            }
+            
+            delegate!.addNotification(at: indexPath, child: self.currentChild!)
         }
+        
     }
     
+    
+    func setupWith(child: Child) {
+        
+        self.currentChild = child
+        
+        if self.currentChild?.name == nil && self.currentChild?.age == nil {
+            
+            self.nameTF.text = ""
+            self.ageTF.text = ""
+        }
+        
+        self.nameTF.text = self.currentChild?.name
+        
+        if self.currentChild?.age != nil {
+            
+            self.ageTF.text = String( (self.currentChild?.age)! )
+            
+        } else if self.currentChild?.age == nil {
+            self.ageTF.text = ""
+        }
+    }
 }
+

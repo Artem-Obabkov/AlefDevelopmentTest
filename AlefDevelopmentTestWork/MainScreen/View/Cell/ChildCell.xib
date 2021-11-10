@@ -40,7 +40,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="nameTFAction:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="F0m-61-GqJ"/>
+                                    <action selector="nameTFAction:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="5YL-7U-Vlq"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -77,7 +77,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="ageTFAction:" destination="KGk-i7-Jjw" eventType="editingDidBegin" id="e2R-3V-7sF"/>
+                                    <action selector="ageTFAction:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="hww-gD-eK0"/>
                                 </connections>
                             </textField>
                         </subviews>

@@ -42,20 +42,30 @@ class MainViewController: UIViewController {
     
     
     @IBAction func addChildAction(_ sender: UIButton) {
-        addAnimation(to: sender)
+        self.addAnimation(to: sender)
+        self.view.endEditing(true)
         
-        tableView.isHidden = false
+        let child = Child(name: nil, age: nil)
+        self.childs.append(child)
         
-        let child = Child(name: "", age: "")
-        childs.append(child)
+        print("Массив: \(self.childs)")
         
-        tableView.reloadData()
+        self.tableView.reloadData()
         
+        if childs.count == 5 {
+            self.addChildButton.isHidden = true
+            return
+        }
     }
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
-        addAnimation(to: sender)
+        self.addAnimation(to: sender)
+        self.addChildButton.isHidden = false
         
+        print("Массив перед удалением: \(self.childs)")
+        self.childs.removeAll()
+        
+        self.tableView.reloadData()
     }
     
 }
@@ -72,11 +82,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ChildCell.cellIdentifier()) as! ChildCell
         
+        let child = childs[indexPath.row]
+        
         // Указываем делегату ячейки
         cell.delegate = self
         
         // Настраиваем ячейку
         cell.setupCellDesign()
+        cell.indexPath = indexPath
+        
+        cell.setupWith(child: child)
         
         return cell
     }
@@ -103,16 +118,31 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: ChildCellDelegate {
     
-    func shouldDelete() {
-        print("Удалить")
+    func shouldDelete(at indexPath: IndexPath) {
+        
+        self.childs.remove(at: indexPath.row)
+        
+        self.tableView.reloadData()
+        
+        if self.childs.count < 5 {
+            self.addChildButton.isHidden = false
+        }
     }
     
-    func addNotification() {
+    func addNotification(at indexPath: IndexPath, child: Child) {
         
-        // Добавить нотификаторы для подъема и опускания collection view
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        print("Элемент массива номер: '\(indexPath.row)")
+        print("Массив перед удалением", self.childs)
+        self.childs[indexPath.row] = child
         
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        print("Массив после редактирования \(self.childs)")
+        self.tableView.reloadData()
+        
+        
+//        // Добавить нотификаторы для подъема и опускания collection view
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         print("Text view открылось")
     }
@@ -124,6 +154,7 @@ extension MainViewController: ChildCellDelegate {
     }
     
     @objc func handleKeyboardWillHide(notification: Notification) {
+        print("Клавиатура спряталаьс")
         
         //collectionView.scrollToItem(at: IndexPath(row: messagesList.count - 1, section: chatSection), at: .top, animated: false)
     }

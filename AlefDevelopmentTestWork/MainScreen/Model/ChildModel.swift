@@ -9,7 +9,7 @@ import Foundation
 
 struct Child {
     
-    var name: String
-    var age: String
+    var name: String?
+    var age: Int?
     
 }
