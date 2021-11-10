@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     
     
+    
     var childs = [Child]()
     
     
