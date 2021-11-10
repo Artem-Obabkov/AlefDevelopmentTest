@@ -92,7 +92,7 @@ class ChildCell: UITableViewCell {
         
         self.currentChild = child
         
-        if self.currentChild?.name == nil && self.currentChild?.age == nil {
+        if self.currentChild?.name == nil, self.currentChild?.age == nil {
             
             self.nameTF.text = ""
             self.ageTF.text = ""
@@ -107,6 +107,7 @@ class ChildCell: UITableViewCell {
         } else if self.currentChild?.age == nil {
             self.ageTF.text = ""
         }
+
     }
 }
 

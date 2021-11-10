@@ -18,6 +18,7 @@
 		8BF300A7273A9EB200FA534A /* ChildCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BF300A5273A9EB200FA534A /* ChildCell.xib */; };
 		8BF300AA273B08DD00FA534A /* ChildCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300A9273B08DD00FA534A /* ChildCellExtension.swift */; };
 		8BF300AE273B155A00FA534A /* ChildModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300AD273B155A00FA534A /* ChildModel.swift */; };
+		8BF300B1273C58EA00FA534A /* MainVC + AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF300B0273C58EA00FA534A /* MainVC + AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8BF300A5273A9EB200FA534A /* ChildCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChildCell.xib; sourceTree = "<group>"; };
 		8BF300A9273B08DD00FA534A /* ChildCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildCellExtension.swift; sourceTree = "<group>"; };
 		8BF300AD273B155A00FA534A /* ChildModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildModel.swift; sourceTree = "<group>"; };
+		8BF300B0273C58EA00FA534A /* MainVC + AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC + AlertController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8BF300A0273A9D0A00FA534A /* MainVCExtension.swift */,
+				8BF300B0273C58EA00FA534A /* MainVC + AlertController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				8BF300AA273B08DD00FA534A /* ChildCellExtension.swift in Sources */,
 				8BF300A6273A9EB200FA534A /* ChildCell.swift in Sources */,
 				8BF30079273A6CF400FA534A /* SceneDelegate.swift in Sources */,
+				8BF300B1273C58EA00FA534A /* MainVC + AlertController.swift in Sources */,
 				8BF300A1273A9D0A00FA534A /* MainVCExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

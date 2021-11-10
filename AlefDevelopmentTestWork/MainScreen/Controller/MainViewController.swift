@@ -21,10 +21,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addChildButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     
-    
-    
     var childs = [Child]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +32,11 @@ class MainViewController: UIViewController {
         
         // Добавляем жест для яскрытия клавиатуры
         addTapGesture()
+        
+        // Создаем нотификаторы
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         // Регистрируем ячейку
         tableView.register(ChildCell.registerNib(), forCellReuseIdentifier: ChildCell.cellIdentifier())
@@ -57,16 +59,15 @@ class MainViewController: UIViewController {
             self.addChildButton.isHidden = true
             return
         }
+        
+        
     }
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
         self.addAnimation(to: sender)
         self.addChildButton.isHidden = false
         
-        print("Массив перед удалением: \(self.childs)")
-        self.childs.removeAll()
-        
-        self.tableView.reloadData()
+        self.createAlert(with: "Удалить", message: "Здесь вы можете удалить ребенка из вашей жизни")
     }
     
 }
@@ -132,32 +133,36 @@ extension MainViewController: ChildCellDelegate {
     
     func addNotification(at indexPath: IndexPath, child: Child) {
         
-        print("Элемент массива номер: '\(indexPath.row)")
-        print("Массив перед удалением", self.childs)
         self.childs[indexPath.row] = child
-        
-        print("Массив после редактирования \(self.childs)")
         self.tableView.reloadData()
         
-        
-//        // Добавить нотификаторы для подъема и опускания collection view
-//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        print("Text view открылось")
     }
     
     
-    @objc func handleKeyboardWillShow(notification: Notification) {
+    @objc func handleKeyboard(notification: Notification) {
         
-        //collectionView.scrollToItem(at: IndexPath(row: messagesList.count - 1, section: chatSection), at: .top, animated: false)
-    }
-    
-    @objc func handleKeyboardWillHide(notification: Notification) {
-        print("Клавиатура спряталаьс")
+        guard
+            let userInfo = notification.userInfo as? [String: Any],
+            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        else { return }
         
-        //collectionView.scrollToItem(at: IndexPath(row: messagesList.count - 1, section: chatSection), at: .top, animated: false)
+        
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            
+            print("Клавиатура спряталась")
+            tableView.contentInset = UIEdgeInsets.zero
+            
+            
+        } else {
+            
+            print("Клавиатура появилась")
+            tableView.contentInset = UIEdgeInsets(
+                top: 0,
+                left: 0,
+                bottom: keyboardFrame.height,
+                right: 0)
+            
+        }
     }
 }
 
